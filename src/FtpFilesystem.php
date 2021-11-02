@@ -77,15 +77,25 @@ class FtpFilesystem extends Filesystem
             throw new InvalidConfigException('The "host" property must be set.');
         }
 
-        if ($this->root !== null) {
-            $this->root = Yii::getAlias($this->root);
+        if ($this->root === null) {
+            throw new InvalidConfigException('The "root" property must be set.');
         }
+
+        if ($this->username === null) {
+            throw new InvalidConfigException('The "username" property must be set.');
+        }
+
+        if ($this->password === null) {
+            throw new InvalidConfigException('The "password" property must be set.');
+        }
+
+        $this->root = Yii::getAlias($this->root);
 
         parent::init();
     }
 
     /**
-     * @return Ftp
+     * @return FtpAdapter
      */
     protected function prepareAdapter()
     {
@@ -99,11 +109,10 @@ class FtpFilesystem extends Filesystem
             'ssl',
             'timeout',
             'root',
-            'permPrivate',
-            'permPublic',
             'passive',
             'transferMode',
             'enableTimestampsOnUnixListings',
+            'systemType',
         ] as $name) {
             if ($this->$name !== null) {
                 $config[$name] = $this->$name;
