@@ -1,0 +1,46 @@
+{
+    "name": "acidwave/yii2-flysystem",
+    "description": "The flysystem extension for the Yii framework",
+    "keywords": [
+        "yii2",
+        "flysystem",
+        "filesystem",
+        "files",
+        "aws",
+        "dropbox",
+        "ftp",
+        "sftp",
+        "webdav"
+    ],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Acid Wave",
+            "email": "me@acidwave.ru"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "yiisoft/yii2": "~2.0.0",
+        "league/flysystem": "^2.0"
+    },
+    "require-dev": {
+        "league/flysystem-aws-s3-v3": "^2.0",
+        "league/flysystem-ftp": "^2.0",
+        "league/flysystem-sftp": "^2.0",
+        "spatie/flysystem-dropbox": "^2.0",
+        "league/flysystem-ziparchive": "^2.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Acidwave\\Flysystem\\": "src"
+        }
+    }
+}
